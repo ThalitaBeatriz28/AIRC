@@ -41,9 +41,55 @@
     </script>
 </head>
 <body>
-    
+
     <!-- Link de atalho para quem navega por teclado/leitor de tela -->
     <a class="skip" href="#conteudo">Ir para o conteúdo</a>
     <div class="progress" aria-hidden="true"></div>
+
+    <!-- CABEÇALHO: Marca e navegação principal -->
+    <header class="site-header">
+      <div class="wrap bar">
+        <a class="brand" href="index.html" aria-label="Ana Izaura Rodrigues, página inicial">
+          <img src="src/assets/img/logo-icone.png" width="238" height="122" alt="" />
+          <span>
+            <span class="script">Ana Izaura Rodrigues</span>
+            <small>Aulas particulares de inglês</small>
+          </span>
+        </a>
+
+        <!-- O botão hambúrguer  -->
+        <button class="burger" type="button"
+          aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav id="menu" aria-label="Principal">
+          <ul>
+            
+            <li><a href="index.html" aria-current="page">Início</a></li>
+
+            <!-- Submenu "Para quem": botão que abre a lista de públicos -->
+            <li class="has-sub">
+              <button type="button" class="sub-toggle"
+                aria-expanded="false" aria-controls="sub-quem">
+                Para quem<span class="caret" aria-hidden="true"></span>
+              </button>
+
+              <ul id="sub-quem" class="submenu">
+                <li><a href="para-quem-criancas.html">Crianças</a></li>
+                <li><a href="para-quem-adolescentes.html">Adolescentes</a></li>
+                <li><a href="para-quem-adultos.html">Adultos</a></li>
+              </ul>
+            </li>
+            <li><a href="metodo.html">Método</a></li>
+            <li><a href="professora.html">A professora</a></li>
+            <li><a href="depoimentos.html">Depoimentos</a></li>
+            <li><a class="btn btn-sm" href="contato.html">Agende uma aula</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 </body>
 </html>
