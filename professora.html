@@ -79,9 +79,45 @@
         </div>
     </header>
 
-    <!-- Conteúdo exclusivo de cada página -->
     <main id="conteudo">
-        <!-- Conteudo -->
+    <!-- CABEÇALHO DA PÁGINA: trilha de navegação + título principal (um único h1 por página) -->
+        <section class="cabecalho-pagina" aria-labelledby="titulo">
+            <div class="wrap">
+                <nav class="trilha-navegacao" aria-label="Você está aqui">
+                    <ol>
+                        <li><a href="index.html">Início</a></li>
+                        <li aria-current="page">A professora</li>
+                    </ol>
+                </nav>
+                <h1 id="titulo">Ana Izaura Rodrigues</h1>
+                <p class="lead">Olá, obrigada pela visita! Sou professora de inglês e amo o que faço.</p>
+            </div>
+        </section>
+
+        <section class="secao" aria-labelledby="titulo-bio">
+            <div class="wrap duas-colunas">
+                <div>
+                    <h2 id="titulo-bio" class="revelar">Dedicação e seriedade</h2>
+                    <p class="revelar">
+                        Sou formada em Letras e em Tradução e Interpretação e leciono há mais de 20 anos.
+                        Também trabalho na coordenação de escola de idiomas, contratando e treinando
+                        professores novos e atualizando os demais.
+                    </p>
+                    <p class="revelar">
+                        Trabalho com métodos e materiais modernos, de acordo com a necessidade de cada aluno,
+                        e estou sempre em busca de novos conhecimentos, participando de cursos e workshops
+                        para oferecer o melhor.
+                    </p>
+                    <p class="revelar">Aguardo ansiosamente o seu contato!</p>
+                    <p class="cta"><a class="btn" href="contato.html">Agende uma entrevista</a></p>
+                </div>
+                <figure class="foto-inclinada revelar">
+                    <img src="https://static.wixstatic.com/media/722d49_25a4016c0b4340c78a36d66ab5f64adb~mv2_d_2592_1944_s_2.jpg/v1/fill/w_900,h_675,al_c,q_80/aula.jpg"
+                    width="900" height="675" loading="lazy" alt="Aula particular de inglês com a teacher Ana"/>
+                    <figcaption class="fita-legenda">Agende uma entrevista hoje!</figcaption>
+                </figure>
+            </div>
+        </section>
     </main>
 
     <!-- Rodapé  -->
