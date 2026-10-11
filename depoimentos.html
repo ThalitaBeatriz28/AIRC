@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Depoimentos | Ana Izaura Rodrigues</title>
+    <meta name="description" content="Veja os depoimentos de alunos e pais que já estudaram com a teacher Ana Izaura." />
+    <meta name="theme-color" content="#2a1ba6" />
+
+    <!-- Prévia ao compartilhar o link -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Depoimentos | Ana Izaura Rodrigues" />
+    <meta property="og:description" content="Veja os depoimentos de alunos e pais que já estudaram com a teacher Ana Izaura." />
+    <meta property="og:image" content="src/assets/img/logo.png" />
+
+    <link rel="icon" href="src/assets/img/logo-icone.png" />
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Kaushan+Script&display=swap" rel="stylesheet" />
+
+    <!-- Indica que o JavaScript está ativo -->
+    <script>
+        document.documentElement.classList.add("js");
+    </script>
+
+    <link rel="stylesheet" href="src/css/style.css" />
+</head>
+<body>
+    <!-- Atalho de acessibilidade -->
+    <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+    <div class="progress" aria-hidden="true"></div>
+
+    <!-- Cabeçalho  -->
+    <header class="site-header">
+        <div class="wrap bar">
+            <a class="brand" href="index.html" aria-label="Ana Izaura Rodrigues, página inicial">
+                <img src="src/assets/img/logo-icone.png" width="238" height="122" alt="" />
+                <span>
+                    <span class="script">Ana Izaura Rodrigues</span>
+                    <small>Aulas particulares de inglês</small>
+                </span>
+            </a>
+
+            <button class="burger" type="button"
+                aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="menu" aria-label="Principal">
+                <ul>
+                    <!-- Adicione aria-current="page" ao link da página atual -->
+                    <li><a href="index.html">Início</a></li>
+
+                    <li class="has-sub">
+                        <button type="button" class="sub-toggle"
+                            aria-expanded="false" aria-controls="sub-quem">
+                            Para quem
+                            <span class="caret" aria-hidden="true"></span>
+                        </button>
+
+                        <ul id="sub-quem" class="submenu">
+                            <li><a href="para-quem-criancas.html">Crianças</a></li>
+                            <li><a href="para-quem-adolescentes.html">Adolescentes</a></li>
+                            <li><a href="para-quem-adultos.html">Adultos</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="metodo.html">Método</a></li>
+                    <li><a href="professora.html">A professora</a></li>
+                    <li><a href="depoimentos.html">Depoimentos</a></li>
+                    <li><a class="btn btn-sm" href="contato.html">Agende uma aula</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo exclusivo de cada página -->
+    <main id="conteudo">
+        <!-- Conteudo -->
+    </main>
+
+    <!-- Rodapé  -->
+    <footer class="rodape">
+        <div class="wrap rodape-grade">
+            <!-- Mapa -->
+            <iframe
+                class="rodape-mapa"
+                title="Mapa: Rua Luci, 37, Limão, São Paulo"
+                src="https://www.google.com/maps?q=Rua+Luci,+37,+Lim%C3%A3o,+S%C3%A3o+Paulo&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+            <!-- Contato -->
+            <address class="rodape-contato">
+                <strong class="script">Ana Izaura Rodrigues</strong>
+                <span>Aulas particulares de inglês</span>
+                <a href="https://www.google.com/maps/place/?q=place_id:ChIJd8JDrzP4zpQRELQF1C60fQo"
+                    target="_blank" rel="noopener noreferrer">
+                    Rua Luci, 37, Limão, São Paulo - SP
+                    <span class="leitor-de-tela">(abre em nova aba)</span>
+                </a>
+                <a href="mailto:ana.izaura1904@gmail.com">ana.izaura1904@gmail.com</a>
+                <a href="tel:+5511997900012">(11) 99790-0012</a>
+            </address>
+
+            <section class="quadro-negro" aria-labelledby="quadro-titulo">
+                <h2 id="quadro-titulo" class="script">Phrase of the day</h2>
+                <p class="quadro-frase-en" id="frase-en" lang="en">Practice makes perfect.</p>
+                <p class="quadro-frase-pt" id="frase-pt">A prática leva à perfeição.</p>
+                <ul class="letras-pulando" aria-hidden="true">
+                    <li>A</li>
+                    <li>B</li>
+                    <li>C</li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+                <p class="quadro-nota"><span aria-hidden="true">✏️</span> Keep learning!</p>
+            </section>
+        </div>
+        <p class="direitos">
+            <small>© <time id="ano-atual" datetime="2026">2026</time> Ana Izaura Rodrigues. Todos os direitos reservados.</small>
+        </p>
+    </footer>
+
+    <script src="src/script/script.js"></script>
+</body>
+</html>
