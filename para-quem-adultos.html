@@ -3,29 +3,23 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>Para Adultos | Ana Izaura Rodrigues</title>
     <meta name="description" content="Aulas particulares de inglês para adultos, com foco em comunicação efetiva e desenvolvimento de habilidades linguísticas." />
     <meta name="theme-color" content="#2a1ba6" />
-
     <!-- Prévia ao compartilhar o link -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Para Adultos | Ana Izaura Rodrigues" />
     <meta property="og:description" content="Aulas particulares de inglês para adultos, com foco em comunicação efetiva e desenvolvimento de habilidades linguísticas." />
     <meta property="og:image" content="src/assets/img/logo.png" />
-
     <link rel="icon" href="src/assets/img/logo-icone.png" />
-
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Kaushan+Script&display=swap" rel="stylesheet" />
-
     <!-- Indica que o JavaScript está ativo -->
     <script>
         document.documentElement.classList.add("js");
     </script>
-
     <link rel="stylesheet" href="src/css/style.css" />
 </head>
 <body>
@@ -79,9 +73,47 @@
         </div>
     </header>
 
-    <!-- Conteúdo exclusivo de cada página -->
     <main id="conteudo">
-        <!-- Conteudo -->
+        <section class="cabecalho-pagina" aria-labelledby="titulo">
+            <div class="wrap">
+                <nav class="trilha-navegacao" aria-label="Você está aqui">
+                    <ol>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="index.html#para-quem">Para quem</a></li>
+                        <li aria-current="page">Adultos</li>
+                    </ol>
+                </nav>
+                <h1 id="titulo"><span class="emoji" aria-hidden="true">💼</span> Inglês para adultos</h1>
+                <p class="lead">Estude sozinho, em dupla ou em pequenos grupos, presencial ou online.</p>
+            </div>
+        </section>
+
+        <section class="secao" aria-labelledby="titulo-modalidades">
+            <div class="wrap duas-colunas-topo">
+                <div>
+                    <h2 id="titulo-modalidades" class="revelar">Escolha como estudar</h2>
+                    <p class="revelar">
+                        Você tem amigos que estão com você nas diversões e no trabalho? Por que não aprender
+                        um idioma juntos? As aulas podem ser produtivas e também muito divertidas.
+                    </p>
+                    <p class="revelar">
+                        Prefere algo personalizado? Na aula particular o foco é você: escolhe quantas horas
+                        por semana e pode desmarcar com até 24 horas de antecedência, repondo depois.
+                    </p>
+                    <ul class="etiquetas revelar">
+                        <li>Particular</li>
+                        <li>Em dupla</li>
+                        <li>Pequeno grupo</li>
+                        <li>Presencial</li>
+                        <li>Online</li>
+                    </ul>
+                </div>
+                <figure class="foto-inclinada revelar">
+                    <img src="https://static.wixstatic.com/media/b2c710e650a3ab1ce15c58e76b3df006.jpg/v1/fill/w_468,h_280,al_c,q_80/foto.jpg"
+                    width="468" height="280" loading="lazy" alt="Adulto estudando inglês"/>
+                </figure>
+            </div>
+        </section>
     </main>
 
     <!-- Rodapé  -->
