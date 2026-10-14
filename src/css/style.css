@@ -1,11 +1,89 @@
 /* 1. VARIÁVEIS */
 :root {
-  --blue: #2a1ba6;
-  --red: #c4160a;
-  --navy: #16103f;
-  --gray: #a8a8a8;
-  --mist: #ececf2;
-  --white: #fff;
-  --f: "Nunito", system-ui, sans-serif;
-  --s: "Kaushan Script", cursive;
+  --azul: #2a1ba6;
+  --vermelho: #c4160a;
+  --azul-marinho: #16103f;
+  --cinza: #a8a8a8;
+  --cinza-claro: #ececf2;
+  --branco: #fff;
+  --fonte-texto: "Nunito", system-ui, sans-serif;
+  --fonte-script: "Kaushan Script", cursive;
+}
+
+/* 2. BASE */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+body {
+  font-family: var(--fonte-texto);
+  color: var(--azul-marinho);
+  background: var(--branco);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: var(--azul);
+}
+
+:focus-visible {
+  outline: 3px solid var(--vermelho);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: min(1120px, 92%);
+  margin-inline: auto;
+}
+
+.estreito {
+  width: min(760px, 92%);
+}
+
+.script {
+  font-family: var(--fonte-script);
+  font-weight: 400;
+}
+
+.leitor-de-tela {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip {
+  position: absolute;
+  left: 8px;
+  top: -60px;
+  background: var(--vermelho);
+  color: #fff;
+  padding: 10px 16px;
+  z-index: 200;
+  border-radius: 8px;
+}
+
+.skip:focus {
+  top: 8px;
 }
