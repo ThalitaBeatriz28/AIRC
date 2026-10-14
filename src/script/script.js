@@ -146,3 +146,56 @@ selecionarTodos(".cartao-vira-botao").forEach((botao) => {
     botao.setAttribute("aria-pressed", botao.getAttribute("aria-pressed") !== "true");
   });
 });
+
+/* 8. LIVRO DE OPINIÕES
+   "folhasViradas" = quantas folhas já foram viradas (0 = livro fechado).
+   O botão "Abrir o livro" fica na própria capa; os controles abaixo só aparecem com o livro aberto. */
+const livro = selecionar("[data-livro]");
+
+if (livro) {
+  const folhas = selecionarTodos(".folha", livro);
+  const ultimaFolha = folhas.length - 1;
+  const botaoAbrir = selecionar("[data-livro-abrir]", livro);
+  const botaoProxima = selecionar("[data-livro-proxima]", livro);
+  const botaoAnterior = selecionar("[data-livro-anterior]", livro);
+  const controles = selecionar(".livro-controles", livro);
+  const statusLivro = selecionar("[data-livro-status]", livro);
+  let folhasViradas = 0;
+
+  function desenharLivro() {
+    folhas.forEach((folha, indice) => {
+      folha.classList.toggle("virada", indice < folhasViradas);
+      /* Folhas viradas empilham à esquerda; as demais à direita, da primeira para a última */
+      folha.style.setProperty("--camada", indice < folhasViradas ? indice : folhas.length - indice);
+      folha.inert = indice !== folhasViradas;
+    });
+
+    livro.classList.toggle("aberto", folhasViradas > 0);
+    controles.hidden = folhasViradas === 0;
+    botaoAnterior.hidden = false; /* voltar página fica disponível em qualquer folha */
+    botaoProxima.hidden = folhasViradas === ultimaFolha;
+    botaoAnterior.textContent = folhasViradas === 1 ? "Fechar o livro" : "Página anterior";
+    statusLivro.textContent =
+      folhasViradas === 0 ? "Livro fechado" : `Página ${folhasViradas} de ${ultimaFolha}`;
+  }
+
+  botaoAbrir.addEventListener("click", () => {
+    folhasViradas = 1;
+    desenharLivro();
+    botaoProxima.focus();
+  });
+
+  botaoProxima.addEventListener("click", () => {
+    folhasViradas = Math.min(folhasViradas + 1, ultimaFolha);
+    desenharLivro();
+    if (folhasViradas === ultimaFolha) botaoAnterior.focus();
+});
+
+  botaoAnterior.addEventListener("click", () => {
+    folhasViradas = Math.max(folhasViradas - 1, 0);
+    desenharLivro();
+    if (folhasViradas === 0) botaoAbrir.focus();
+  });
+
+  desenharLivro();
+}
