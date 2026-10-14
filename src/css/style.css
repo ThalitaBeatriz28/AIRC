@@ -87,3 +87,49 @@ a {
 .skip:focus {
   top: 8px;
 }
+
+h1,
+h2,
+h3 {
+  line-height: 1.12;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  margin-bottom: 28px;
+}
+
+/* detalhe de duas cores = os dois balões da logo */
+h2::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 6px;
+  margin-top: 10px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--azul) 50%, var(--vermelho) 50%);
+}
+
+.secao {
+  padding: clamp(56px, 8vw, 96px) 0;
+}
+
+.fundo-cinza {
+  background: var(--cinza-claro);
+}
+
+.lead {
+  font-size: 1.15rem;
+  max-width: 52ch;
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: var(--vermelho);
+  z-index: 100;
+}
