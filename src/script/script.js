@@ -199,3 +199,61 @@ if (livro) {
 
   desenharLivro();
 }
+
+/* 9. CARROSSEL DE FOTOS ("Momentos de aula") */
+const galeria = selecionar("[data-galeria]");
+
+if (galeria) {
+  const trilha = selecionar("[data-galeria-trilha]", galeria);
+  const botaoAnteriorGaleria = selecionar("[data-galeria-anterior]", galeria);
+  const botaoProximaGaleria = selecionar("[data-galeria-proxima]", galeria);
+  const statusGaleria = selecionar("[data-galeria-status]", galeria);
+  const fotos = [...trilha.children];
+  let temporizador;
+
+  /* Distância de uma foto à seguinte = largura da foto + espaço entre elas */
+  const tamanhoDoPasso = () =>
+    fotos[1] ? fotos[1].offsetLeft - fotos[0].offsetLeft : trilha.clientWidth;
+
+  function atualizarGaleria() {
+    const rolagemMaxima = trilha.scrollWidth - trilha.clientWidth;
+    botaoAnteriorGaleria.disabled = trilha.scrollLeft <= 2;
+    botaoProximaGaleria.disabled = trilha.scrollLeft >= rolagemMaxima - 2;
+  }
+
+  function irPara(direcao) {
+    trilha.scrollBy({ left: direcao * tamanhoDoPasso(), behavior: "smooth" });
+  }
+
+  botaoAnteriorGaleria.addEventListener("click", () => irPara(-1));
+  botaoProximaGaleria.addEventListener("click", () => irPara(1));
+
+  trilha.addEventListener(
+    "scroll",
+    () => {
+      atualizarGaleria();
+      /* Só anuncia quando a rolagem para, para o leitor de tela não falar sem parar */
+      clearTimeout(temporizador);
+      temporizador = setTimeout(() => {
+        const primeira = Math.round(trilha.scrollLeft / tamanhoDoPasso()) + 1;
+        const visiveis = Math.max(1, Math.round(trilha.clientWidth / tamanhoDoPasso()));
+        const ultimaMostrada = Math.min(primeira + visiveis - 1, fotos.length);
+        statusGaleria.textContent =
+          primeira === ultimaMostrada
+            ? `Foto ${primeira} de ${fotos.length}`
+            : `Fotos ${primeira} a ${ultimaMostrada} de ${fotos.length}`;
+        /* Se a seta clicada ficou desativada, o foco vai para a seta oposta */
+        if (document.activeElement?.disabled) {
+          (document.activeElement === botaoProximaGaleria
+            ? botaoAnteriorGaleria
+            : botaoProximaGaleria
+          ).focus();
+        }
+      }, 160);
+    },
+    { passive: true },
+  );
+
+  addEventListener("resize", atualizarGaleria);
+  atualizarGaleria();
+}
