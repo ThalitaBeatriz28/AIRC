@@ -373,3 +373,81 @@ h2::after {
 .trilha-navegacao a {
   color: #fff;
 }
+
+.cartoes-viram {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 36px;
+  text-align: center;
+}
+
+.cartao-vira:nth-child(2) {
+  margin-top: 28px;
+}
+
+.cartao-vira-botao {
+  display: block;
+  width: 100%;
+  height: 290px;
+  perspective: 900px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.cartao-vira-interno {
+  display: block;
+  position: relative;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 1.4, 0.5, 1);
+  transform-style: preserve-3d;
+}
+
+.cartao-vira-botao[aria-pressed="true"] .cartao-vira-interno {
+  transform: rotateY(180deg);
+}
+
+.lado-cartao {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 28px 28px 28px 6px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.lado-cartao.azul {
+  background: var(--azul);
+}
+
+.lado-cartao.vermelho {
+  background: var(--vermelho);
+  border-radius: 28px 28px 6px 28px;
+}
+
+.lado-cartao .emoji {
+  font-size: 3.4rem;
+}
+
+.lado-cartao strong {
+  font-size: 2.4rem;
+}
+
+.lado-cartao.verso {
+  background: var(--azul-marinho);
+  transform: rotateY(180deg);
+  font-size: 1.05rem;
+}
+
+.cartao-vira .ver-mais {
+  display: inline-block;
+  margin-top: 16px;
+}
