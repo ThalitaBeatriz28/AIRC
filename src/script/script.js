@@ -1,3 +1,14 @@
+/* ==========================================================
+   SCRIPT - SUMARIO
+
+   1. Utilidades            7. Cartões que viram
+   2. Barra de progresso    8. Livro de opiniões
+   3. Menu e submenu        9. Carrossel de fotos
+   4. Animações ao rolar    10. Bandeiras ao vento
+   5. Formulário e assunto  11. Rodapé (frase do dia e ano)
+   6. Contador
+   ========================================================== */
+
 "use strict";
 
 /* 1. UTILIDADES */
@@ -75,8 +86,7 @@ if (campoAssunto) {
   campoAssunto.value = new URLSearchParams(location.search).get("assunto") || "";
 }
 
-/* Valida e envia ao FormSubmit sem recarregar a página.
-   Sem JavaScript, o <form> envia por POST normalmente (action no HTML). */
+/* Valida e envia ao FormSubmit sem recarregar a página. */
 const formulario = selecionar("#formulario-contato");
 
 if (formulario) {
@@ -258,7 +268,7 @@ if (galeria) {
   atualizarGaleria();
 }
 
-/* 10. BANDEIRAS AO VENTO: divide o tecido em faixas verticais que o CSS faz ondular */
+/* 10. BANDEIRAS AO VENTO */
 const QUANTIDADE_DE_FAIXAS = 24;
 
 selecionarTodos(".bandeira").forEach((bandeira) => {
@@ -270,3 +280,24 @@ selecionarTodos(".bandeira").forEach((bandeira) => {
   }
   bandeira.classList.add("ondulando");
 });
+
+/* 11. RODAPÉ: FRASE DO DIA (muda a cada dia) E ANO */
+const frases = [
+  ["Practice makes perfect.", "A prática leva à perfeição."],
+  ["Better late than never.", "Antes tarde do que nunca."],
+  ["Don't give up!", "Não desista!"],
+  ["Learning never stops.", "Aprender nunca acaba."],
+  ["Every day is a new chance.", "Todo dia é uma nova chance."],
+  ["Speak up, you've got this!", "Fale, você consegue!"],
+  ["Mistakes help us learn.", "Errar ajuda a aprender."],
+];
+const fraseEmIngles = selecionar("#frase-en");
+
+if (fraseEmIngles) {
+  const inicioDoAno = new Date(new Date().getFullYear(), 0, 0);
+  const diaDoAno = Math.floor((Date.now() - inicioDoAno) / 86400000);
+  const [ingles, portugues] = frases[diaDoAno % frases.length];
+  fraseEmIngles.textContent = ingles;
+  selecionar("#frase-pt").textContent = portugues;
+}
+selecionar("#ano-atual").textContent = new Date().getFullYear();
