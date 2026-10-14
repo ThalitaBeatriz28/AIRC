@@ -17,3 +17,14 @@ function atualizarProgresso() {
 
 addEventListener("scroll", atualizarProgresso, { passive: true });
 atualizarProgresso();
+
+/* 3. MENU HAMBÚRGUER E SUBMENU "PARA QUEM" */
+const botaoHamburguer = selecionar(".burger");
+const menu = selecionar("#menu");
+const itensComSubmenu = selecionarTodos(".has-sub");
+
+/* Abre/fecha um submenu e avisa leitores de tela (aria-expanded) */
+function definirSubmenu(item, aberto) {
+  item.classList.toggle("aberto", aberto);
+  selecionar(".sub-toggle", item).setAttribute("aria-expanded", aberto);
+}
