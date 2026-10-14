@@ -133,3 +133,32 @@ h2::after {
   background: var(--vermelho);
   z-index: 100;
 }
+
+/* 3. CABEÇALHO E MENU */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--azul-marinho);
+}
+
+.brand img {
+  width: 62px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.brand .script {
+  display: block;
+  font-size: 1.35rem;
+  line-height: 1.1;
+  color: var(--azul);
+}
+
+.brand small {
+  display: block;
+  font-weight: 800;
+  font-size: 0.78rem;
+  color: var(--vermelho);
+}
