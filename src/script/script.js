@@ -52,7 +52,24 @@ document.addEventListener("click", (evento) => {
 addEventListener("keydown", (evento) => evento.key === "Escape" && definirMenu(false));
 addEventListener("resize", () => ehDesktop() && definirMenu(false));
 
-/* . CONTATO: assunto vindo da URL e envio do formulário */
+/* 4. ANIMAÇÃO DE ENTRADA */
+const observadorDeEntrada = new IntersectionObserver(
+  (entradas) => {
+    entradas.forEach((entrada) => {
+      if (!entrada.isIntersecting) return;
+      entrada.target.classList.add("visivel");
+      observadorDeEntrada.unobserve(entrada.target);
+    });
+  },
+  { threshold: 0.2 },
+);
+
+selecionarTodos(".revelar, .passos li").forEach((elemento, indice) => {
+  elemento.style.transitionDelay = (indice % 3) * 90 + "ms";
+  observadorDeEntrada.observe(elemento);
+});
+
+/* 5. CONTATO: assunto vindo da URL e envio do formulário */
 const campoAssunto = selecionar("#assunto");
 if (campoAssunto) {
   campoAssunto.value = new URLSearchParams(location.search).get("assunto") || "";
