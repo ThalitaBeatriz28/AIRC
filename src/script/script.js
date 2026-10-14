@@ -51,3 +51,53 @@ document.addEventListener("click", (evento) => {
 
 addEventListener("keydown", (evento) => evento.key === "Escape" && definirMenu(false));
 addEventListener("resize", () => ehDesktop() && definirMenu(false));
+
+/* . CONTATO: assunto vindo da URL e envio do formulário */
+const campoAssunto = selecionar("#assunto");
+if (campoAssunto) {
+  campoAssunto.value = new URLSearchParams(location.search).get("assunto") || "";
+}
+
+/* Valida e envia ao FormSubmit sem recarregar a página.
+   Sem JavaScript, o <form> envia por POST normalmente (action no HTML). */
+const formulario = selecionar("#formulario-contato");
+
+if (formulario) {
+  const mensagemStatus = selecionar(".formulario-status", formulario);
+
+  formulario.addEventListener("submit", async (evento) => {
+    evento.preventDefault();
+
+    let valido = true;
+    selecionarTodos("[required]", formulario).forEach((campo) => {
+      const invalido =
+        !campo.value.trim() ||
+        (campo.type === "email" && !/^\S+@\S+\.\S+$/.test(campo.value));
+      campo.classList.toggle("erro", invalido);
+      if (invalido) valido = false;
+    });
+
+    mensagemStatus.className = "formulario-status " + (valido ? "sucesso" : "falha");
+    if (!valido) {
+      mensagemStatus.textContent = "Preencha nome, e-mail válido e mensagem.";
+      return;
+    }
+
+    mensagemStatus.textContent = "Enviando…";
+    try {
+      /* Para trocar o e-mail de destino, altere aqui E no atributo action do <form> */
+      const resposta = await fetch("https://formsubmit.co/ajax/ana.izaura1904@gmail.com", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(formulario),
+      });
+      if (!resposta.ok) throw new Error(resposta.status);
+      mensagemStatus.textContent = "Mensagem enviada! A Ana responde pelo seu e-mail.";
+      formulario.reset();
+    } catch {
+      mensagemStatus.className = "formulario-status falha";
+      mensagemStatus.textContent =
+        "Não foi possível enviar agora. Escreva para ana.izaura1904@gmail.com.";
+    }
+  });
+}
