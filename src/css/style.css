@@ -292,3 +292,34 @@ h2::after {
   content: "💬";
   margin-left: 48px;
 }
+
+.faixa-numeros {
+  background: var(--azul-marinho);
+  color: #fff;
+  padding: 48px 0;
+}
+
+.faixa-numeros .wrap {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.faixa-numeros p:last-child {
+  flex: 1;
+  min-width: 240px;
+  max-width: 56ch;
+}
+
+.faixa-numeros a {
+  color: #fff;
+}
+
+.numero-grande {
+  font-size: clamp(4rem, 12vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--vermelho);
+  -webkit-text-stroke: 2px #fff;
+}
