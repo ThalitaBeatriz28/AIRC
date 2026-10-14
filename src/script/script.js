@@ -257,3 +257,16 @@ if (galeria) {
   addEventListener("resize", atualizarGaleria);
   atualizarGaleria();
 }
+
+/* 10. BANDEIRAS AO VENTO: divide o tecido em faixas verticais que o CSS faz ondular */
+const QUANTIDADE_DE_FAIXAS = 24;
+
+selecionarTodos(".bandeira").forEach((bandeira) => {
+  bandeira.style.setProperty("--total-faixas", QUANTIDADE_DE_FAIXAS);
+  for (let i = 0; i < QUANTIDADE_DE_FAIXAS; i++) {
+    const faixa = document.createElement("i");
+    faixa.style.setProperty("--indice", i);
+    bandeira.append(faixa);
+  }
+  bandeira.classList.add("ondulando");
+});
