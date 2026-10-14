@@ -1,0 +1,11 @@
+/* 1. VARIÁVEIS */
+:root {
+  --blue: #2a1ba6;
+  --red: #c4160a;
+  --navy: #16103f;
+  --gray: #a8a8a8;
+  --mist: #ececf2;
+  --white: #fff;
+  --f: "Nunito", system-ui, sans-serif;
+  --s: "Kaushan Script", cursive;
+}
