@@ -119,7 +119,7 @@ if (formulario) {
   });
 }
 
-/* 6. CONTADOR DO "80%+" (só na home) */
+/* 6. CONTADOR DO "80%+"  */
 const contador = selecionar("[data-contar]");
 
 if (contador) {
@@ -139,3 +139,10 @@ if (contador) {
     observador.disconnect();
   }).observe(contador);
 }
+
+/* 7. CARTÕES QUE VIRAM  */
+selecionarTodos(".cartao-vira-botao").forEach((botao) => {
+  botao.addEventListener("click", () => {
+    botao.setAttribute("aria-pressed", botao.getAttribute("aria-pressed") !== "true");
+  });
+});
