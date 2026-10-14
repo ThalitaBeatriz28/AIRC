@@ -269,3 +269,26 @@ h2::after {
 .hero .lead {
   color: #e6e4ff;
 }
+
+.faixa-rolante {
+  background: var(--vermelho);
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.faixa-rolante div {
+  display: inline-flex;
+  animation: rolar-faixa 30s linear infinite;
+}
+
+.faixa-rolante span {
+  padding: 12px 24px;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.faixa-rolante span::after {
+  content: "💬";
+  margin-left: 48px;
+}
