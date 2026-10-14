@@ -118,3 +118,24 @@ if (formulario) {
     }
   });
 }
+
+/* 6. CONTADOR DO "80%+" (só na home) */
+const contador = selecionar("[data-contar]");
+
+if (contador) {
+  const valorFinal = Number(contador.dataset.contar);
+
+  new IntersectionObserver(([entrada], observador) => {
+    if (!entrada.isIntersecting) return;
+    const inicio = performance.now();
+
+    const animar = (agora) => {
+      const progresso = Math.min((agora - inicio) / 1600, 1);
+      contador.textContent = Math.round(valorFinal * (1 - (1 - progresso) ** 3));
+      if (progresso < 1) requestAnimationFrame(animar);
+    };
+
+    requestAnimationFrame(animar);
+    observador.disconnect();
+  }).observe(contador);
+}
