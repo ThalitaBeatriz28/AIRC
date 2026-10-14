@@ -343,3 +343,33 @@ h2::after {
 .faixa-final p {
   margin-bottom: 16px;
 }
+
+.cabecalho-pagina {
+  background: var(--azul);
+  color: #fff;
+  padding: 48px 0 56px;
+}
+
+.cabecalho-pagina h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  margin: 14px 0 12px;
+}
+
+.cabecalho-pagina .lead {
+  color: #e6e4ff;
+}
+
+.trilha-navegacao ol {
+  display: flex;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.trilha-navegacao li + li::before {
+  content: "›";
+  margin-right: 8px;
+}
+
+.trilha-navegacao a {
+  color: #fff;
+}
