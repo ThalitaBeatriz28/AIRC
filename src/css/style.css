@@ -2138,3 +2138,71 @@ textarea.erro {
 .js .capa-livro .btn {
   margin-top: 18px;
 }
+
+/* ==========================================================
+   13. SERVIÇOS NA PÁGINA DA PROFESSORA E DEPOIMENTOS "PROVA CORRIGIDA"
+   ========================================================== */
+.paineis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.paineis-titulo {
+  margin: 34px 0 18px;
+  font-size: 1.5rem;
+}
+
+.painel h3 {
+  margin-bottom: 8px;
+  font-size: 1.35rem;
+}
+
+/* Cada depoimento é uma folha de caderno corrigida com caneta vermelha */
+.mural figure {
+  padding: 56px 22px 20px 44px;
+  background:
+    linear-gradient(90deg, transparent 32px, #e8837a 32px, #e8837a 34px, transparent 34px),
+    repeating-linear-gradient(#fffdf8 0 29px, #dcd8ee 29px 30px);
+  border-radius: 6px 20px 20px 6px;
+}
+
+.mural blockquote {
+  line-height: 30px;
+}
+
+.nota-professora {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-family: var(--fonte-script);
+  font-size: 1.3rem;
+  color: #d3202a;
+  transform: rotate(-7deg);
+}
+
+.nota-professora span {
+  display: inline-grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  font-family: var(--fonte-texto);
+  font-size: 1.3rem;
+  font-weight: 800;
+  border: 3px solid #d3202a;
+  border-radius: 50%;
+}
+
+@media (max-width: 860px) {
+  .rodape-grade {
+    grid-template-columns: 1fr;
+  }
+
+  .rodape-mapa {
+    min-height: 220px;
+  }
+}
+
