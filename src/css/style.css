@@ -451,3 +451,32 @@ h2::after {
   display: inline-block;
   margin-top: 16px;
 }
+
+.duas-colunas {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.foto-inclinada {
+  position: relative;
+  transform: rotate(-3deg);
+}
+
+.foto-inclinada img {
+  border: 10px solid #fff;
+  box-shadow: 8px 10px 0 var(--azul);
+}
+
+.fita-legenda {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%) rotate(3deg);
+  background: var(--vermelho);
+  color: #fff;
+  padding: 6px 18px;
+  font: 400 1.3rem var(--fonte-script);
+  white-space: nowrap;
+}
