@@ -658,3 +658,19 @@ h2::after {
     font-size: 2rem;
   }
 }
+
+.polaroids figure {
+  background: #fff;
+  padding: 12px 12px 40px;
+  box-shadow: 6px 8px 0 var(--cinza);
+  transition: 0.4s;
+  transform: rotate(-3deg);
+}
+
+.polaroids li:nth-child(2) figure {
+  transform: rotate(2deg);
+}
+
+.polaroids figure:hover {
+  transform: rotate(0) scale(1.06);
+}
