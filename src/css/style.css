@@ -717,3 +717,36 @@ h2::after {
 .avaliacoes figcaption {
   font-weight: 800;
 }
+
+details {
+  background: #fff;
+  border: 3px solid var(--azul-marinho);
+  border-radius: 16px;
+  margin-bottom: 14px;
+  padding: 16px 20px;
+}
+
+summary {
+  font-weight: 800;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+summary::after {
+  content: "+";
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--vermelho);
+  transition: transform 0.3s;
+}
+
+details[open] summary::after {
+  transform: rotate(135deg);
+}
+
+details p {
+  margin-top: 10px;
+}
