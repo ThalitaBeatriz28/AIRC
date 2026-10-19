@@ -1243,10 +1243,6 @@ textarea.erro {
   transition: transform 0.3s;
 }
 
-.has-sub.aberto .sub-toggle {
-  transform: rotate(180deg);
-}
-
 .has-sub.aberto .submenu {
   display: flex;
 }

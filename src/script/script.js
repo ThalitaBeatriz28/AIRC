@@ -40,6 +40,15 @@ function definirSubmenu(item, aberto) {
   selecionar(".sub-toggle", item).setAttribute("aria-expanded", aberto);
 }
 
+/* Abre/fecha o menu mobile: classe no menu, aria no botão e trava a rolagem da página */
+function definirMenu(aberto) {
+  menu.classList.toggle("aberto", aberto);
+  botaoHamburguer.setAttribute("aria-expanded", aberto);
+  botaoHamburguer.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+  document.body.classList.toggle("menu-aberto", aberto);
+  if (!aberto) itensComSubmenu.forEach((item) => definirSubmenu(item, false));
+}
+
 botaoHamburguer.addEventListener("click", () => definirMenu(!menu.classList.contains("aberto")));
 
 itensComSubmenu.forEach((item) => {
