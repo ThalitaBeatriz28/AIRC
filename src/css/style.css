@@ -2052,7 +2052,7 @@ textarea.erro {
   color: #fff;
 }
 
-/* Quadro-negro com moldura de madeira (a cor marrom vem da paleta da Thalita) */
+/* Quadro-negro com moldura de madeira  */
 .quadro-negro {
   padding: 20px;
   text-align: center;
@@ -2130,4 +2130,11 @@ textarea.erro {
   margin: 28px auto 0;
   text-align: center;
   border-top: 2px dashed rgba(255, 255, 255, 0.25);
+}
+
+/* ==========================================================
+   12. BOTÃO DA CAPA DO LIVRO
+   ========================================================== */
+.js .capa-livro .btn {
+  margin-top: 18px;
 }
