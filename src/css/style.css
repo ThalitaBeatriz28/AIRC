@@ -2008,3 +2008,126 @@ textarea.erro {
     margin-inline: 0;
   }
 }
+
+/* ==========================================================
+   11. RODAPÉ CRIATIVO: MAPA + CONTATO + QUADRO-NEGRO
+   ========================================================== */
+.rodape {
+  padding: 48px 0 20px;
+  font-size: 0.95rem;
+  color: #e6e4ff;
+  background: var(--azul-marinho);
+}
+
+.rodape-grade {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.1fr) minmax(220px, 1fr) minmax(240px, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.rodape-mapa {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  background: var(--cinza-claro);
+  border: 4px solid #fff;
+  border-radius: 20px 20px 20px 4px;
+}
+
+.rodape-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-style: normal;
+}
+
+.rodape-contato .script {
+  font-size: 1.7rem;
+  color: #fff;
+}
+
+.rodape-contato a {
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Quadro-negro com moldura de madeira (a cor marrom vem da paleta da Thalita) */
+.quadro-negro {
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  background: #1c1a40;
+  border: 8px solid #63453b;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.15);
+}
+
+.quadro-negro h2 {
+  margin-bottom: 8px;
+  font-size: 1.7rem;
+  color: #fff3b0;
+}
+
+.quadro-negro h2::after {
+  display: none;
+}
+
+.quadro-frase-en {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.quadro-frase-pt {
+  margin-bottom: 14px;
+  color: #cfcdf0;
+}
+
+.quadro-nota {
+  margin-top: 14px;
+  font-family: var(--fonte-script);
+  font-size: 1.2rem;
+  color: #fff3b0;
+}
+
+/* Cubos de alfabeto que "pulam" */
+.letras-pulando {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.letras-pulando li {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  font-weight: 800;
+  background: var(--azul);
+  border: 2px solid #fff;
+  border-radius: 8px;
+  animation: pular 2.4s ease-in-out infinite;
+}
+
+.letras-pulando li:nth-child(even) {
+  background: var(--vermelho);
+  animation-delay: 0.3s;
+}
+
+.letras-pulando li:nth-child(3n) {
+  animation-delay: 0.6s;
+}
+
+@keyframes pular {
+  50% {
+    transform: translateY(-8px) rotate(-6deg);
+  }
+}
+
+.direitos {
+  width: min(1120px, 92%);
+  padding-top: 16px;
+  margin: 28px auto 0;
+  text-align: center;
+  border-top: 2px dashed rgba(255, 255, 255, 0.25);
+}
