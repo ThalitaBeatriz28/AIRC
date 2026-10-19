@@ -855,3 +855,69 @@ textarea.erro {
 .formulario-status.falha {
   color: var(--vermelho);
 }
+
+/* 6. ANIMAÇÕES (entrada ao rolar + diálogo do hero) */
+.revelar {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s,
+    transform 0.7s;
+}
+
+.revelar.visivel {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes aparecer-balao {
+  0%,
+  6% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  14%,
+  80% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  92%,
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes rolar-faixa {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* 7. RESPONSIVO: celular e tablet */
+@media (max-width: 860px) {
+  /* minmax(0, 1fr): sem o 0, a coluna cresce até a largura natural da foto e a página desliza para o lado */
+  .hero-grid,
+  .duas-colunas,
+  .contato-grade {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cartao-vira:nth-child(2) {
+    margin-top: 0;
+  }
+}
+
+/* respeita quem desativa animações no sistema */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .revelar,
+  .conversa .balao {
+    opacity: 1;
+    transform: none;
+  }
+}
+
