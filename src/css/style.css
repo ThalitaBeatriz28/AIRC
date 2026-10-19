@@ -1214,3 +1214,36 @@ textarea.erro {
   }
 }
 
+/* ===== Submenu "Para quem" no nav ===== */
+.has-sub {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.sub-toggle {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--azul-marinho);
+  font-size: 1rem;
+  padding: 6px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.has-sub.aberto .sub-toggle {
+  transform: rotate(180deg);
+}
+
+.has-sub.aberto .submenu {
+  display: flex;
+}
+
+@media (hover: hover) and (min-width: 861px) {
+  .has-sub:hover .submenu,
+  .has-sub:focus-within .submenu {
+    display: flex;
+  }
+}
