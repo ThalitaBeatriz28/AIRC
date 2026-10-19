@@ -521,3 +521,24 @@ h2::after {
 .passos li.visivel::after {
   transform: none;
 }
+
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.etiquetas li {
+  border: 3px solid var(--azul);
+  border-radius: 999px;
+  padding: 3px 16px;
+  font-weight: 800;
+  transition: 0.2s;
+}
+
+.etiquetas li:hover {
+  background: var(--vermelho);
+  border-color: var(--vermelho);
+  color: #fff;
+  transform: rotate(-4deg) scale(1.08);
+}
