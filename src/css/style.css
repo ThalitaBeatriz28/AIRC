@@ -1627,3 +1627,91 @@ textarea.erro {
 .burger[aria-expanded="true"] span:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
 }
+
+/* Menu mobile: ocupa a tela inteira e rola se o conteúdo não couber */
+@media (max-width: 860px) {
+  .burger {
+    display: flex;
+  }
+
+  #menu {
+    position: fixed;
+    inset: 0;
+    z-index: 55;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    padding: 96px 24px 32px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--azul);
+    visibility: hidden;
+    clip-path: circle(0 at calc(100% - 40px) 36px);
+    transition:
+      clip-path 0.6s,
+      visibility 0s 0.6s;
+  }
+
+  #menu.aberto {
+    visibility: visible;
+    clip-path: circle(150% at calc(100% - 40px) 36px);
+    transition: clip-path 0.6s;
+  }
+
+  /* margin: auto centraliza sem cortar o topo quando a lista é alta */
+  #menu > ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    width: min(100%, 420px);
+    margin: auto;
+    text-align: center;
+  }
+
+  #menu a:not(.btn),
+  .sub-toggle {
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
+    font-size: clamp(1.25rem, 5.5vw, 1.6rem);
+    color: #fff;
+  }
+
+  #menu .btn {
+    margin-top: 12px;
+  }
+
+  .has-sub {
+    padding-block: 0;
+  }
+
+  #menu .submenu {
+    position: static;
+    min-width: 0;
+    margin: 4px 0 8px;
+    padding: 6px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 0;
+    box-shadow: none;
+  }
+
+  #menu .submenu a {
+    justify-content: center;
+    font-size: 1.15rem;
+  }
+
+  #menu .submenu a:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .menu-aberto {
+    overflow: hidden;
+  }
+
+  .menu-aberto .brand,
+  .menu-aberto .brand .script,
+  .menu-aberto .brand small {
+    color: #fff;
+  }
+}
