@@ -480,3 +480,44 @@ h2::after {
   font: 400 1.3rem var(--fonte-script);
   white-space: nowrap;
 }
+
+.passos {
+  margin: 0 0 26px;
+}
+
+.passos li {
+  position: relative;
+  padding: 0 0 22px 58px;
+}
+
+.passos strong {
+  display: block;
+  font-size: 1.25rem;
+}
+
+.passos li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid var(--azul);
+  background: #fff;
+}
+
+.passos li::after {
+  content: "✔";
+  position: absolute;
+  left: 8px;
+  top: 2px;
+  font-size: 1.5rem;
+  color: var(--vermelho);
+  transform: scale(0) rotate(-40deg);
+  transition: transform 0.5s 0.5s cubic-bezier(0.4, 1.8, 0.5, 1);
+}
+
+.passos li.visivel::after {
+  transform: none;
+}
