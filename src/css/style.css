@@ -2444,3 +2444,39 @@ textarea.erro {
 .balao-fala a:focus-visible {
   outline-color: var(--azul-marinho);
 }
+
+@media (max-width: 860px) {
+  .conversa-lista {
+    gap: 30px;
+  }
+
+  .conversa::before {
+    right: -90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .balao-fala {
+    gap: 12px;
+    padding-right: 24px;
+  }
+
+  .balao-fala-icone {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+  }
+
+  .balao-fala a,
+  .balao-fala-valor {
+    font-size: 1rem;
+  }
+
+  .conversa-lista li:nth-child(3) .balao-fala {
+    margin-left: 12px;
+  }
+
+  .conversa-lista li:nth-child(4) .balao-fala {
+    margin-right: 12px;
+  }
+}
