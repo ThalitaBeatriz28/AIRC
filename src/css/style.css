@@ -983,3 +983,100 @@ textarea.erro {
   transform: translateX(-10px) rotate(-1deg);
   background: var(--azul-marinho);
 }
+
+/* Subpáginas de público */
+.cabecalho-pagina h1 .emoji {
+  font-size: 0.9em;
+}
+
+.duas-colunas-topo {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.pilha {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
+}
+
+.grade-paineis {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
+
+.painel {
+  background: #fff;
+  border: 3px solid var(--azul-marinho);
+  border-left: 12px solid var(--azul);
+  border-radius: 6px 24px 24px 6px;
+  padding: 24px;
+  transition: 0.3s;
+}
+
+.painel:nth-child(even) {
+  border-left-color: var(--vermelho);
+}
+
+.painel:hover {
+  transform: translateX(6px);
+}
+
+.painel h2 {
+  font-size: 1.35rem;
+  margin-bottom: 8px;
+}
+
+.painel h2::after {
+  display: none;
+}
+
+.secao-certificados {
+  background: var(--vermelho);
+  color: #fff;
+  text-align: center;
+}
+
+.secao-certificados h2::after {
+  margin-inline: auto;
+  background: #fff;
+}
+
+.secao-certificados .lead {
+  margin-inline: auto;
+}
+
+.cursos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.curso {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 3px solid var(--azul-marinho);
+  padding: 0 0 22px;
+  box-shadow: 6px 6px 0 var(--azul);
+}
+
+.curso:nth-child(even) {
+  box-shadow: 6px 6px 0 var(--vermelho);
+}
+
+.curso h3 {
+  background: var(--azul-marinho);
+  color: #fff;
+  padding: 16px 22px;
+  font-size: 1.25rem;
+  margin-bottom: 14px;
+}
+
+.curso p,
+.curso .etiquetas {
+  margin: 0 22px 12px;
+}
