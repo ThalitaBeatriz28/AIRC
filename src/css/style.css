@@ -2257,3 +2257,92 @@ textarea.erro {
     transform: translateY(-7px);
   }
 }
+
+.conversa {
+  position: relative;
+  padding: 18px 0 24px;
+  font-style: normal;
+  isolation: isolate;
+}
+
+/* Bolhas suaves ao fundo: dão o ar "orgânico" e não atrapalham a leitura */
+.conversa::before,
+.conversa::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.conversa::before {
+  top: -30px;
+  right: -60px;
+  width: 270px;
+  height: 250px;
+  background: rgba(42, 27, 166, 0.08);
+  border-radius: 58% 42% 55% 45% / 48% 55% 45% 52%;
+}
+
+.conversa::after {
+  bottom: -10px;
+  left: -40px;
+  width: 170px;
+  height: 160px;
+  background: rgba(196, 22, 10, 0.1);
+  border-radius: 45% 55% 40% 60% / 55% 45% 58% 42%;
+}
+
+.conversa-lista {
+  display: grid;
+  gap: 32px;
+}
+
+.conversa-lista li {
+  display: flex;
+}
+
+.balao-fala {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: min(100%, 490px);
+  padding: 16px 30px 16px 16px;
+  color: #fff;
+  filter: drop-shadow(0 10px 12px rgba(22, 16, 63, 0.22));
+  transition:
+    rotate 0.3s,
+    scale 0.3s;
+}
+
+.balao-fala:hover,
+.balao-fala:has(a:focus-visible) {
+  rotate: 0deg;
+  scale: 1.04;
+}
+
+/* Cada balão tem um formato e uma inclinação levemente diferentes */
+.balao-fala--azul {
+  background: var(--azul);
+  border-radius: 34px 38px 34px 8px;
+  rotate: -1.2deg;
+}
+
+.balao-fala--vermelho {
+  margin-left: auto;
+  background: var(--vermelho);
+  border-radius: 38px 32px 8px 36px;
+  rotate: 1.2deg;
+}
+
+.conversa-lista li:nth-child(3) .balao-fala {
+  margin-left: 34px;
+  border-radius: 32px 36px 38px 8px;
+  rotate: 0.8deg;
+}
+
+.conversa-lista li:nth-child(4) .balao-fala {
+  margin-right: 34px;
+  border-radius: 36px 34px 8px 32px;
+  rotate: -0.8deg;
+}
