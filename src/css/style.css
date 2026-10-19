@@ -542,3 +542,88 @@ h2::after {
   color: #fff;
   transform: rotate(-4deg) scale(1.08);
 }
+
+.polaroids {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+/* Carrossel: 3 fotos à mostra no computador, 2 no tablet e 1 no celular */
+.galeria {
+  --espaco: 30px;
+  --fotos-por-vez: 3;
+  --respiro: min(18px, 3.5vw); /* respiro lateral da trilha (nunca maior que a margem da página) */
+  position: relative;
+}
+
+.galeria-botao {
+  display: none;
+}
+
+.js .polaroids {
+  display: flex;
+  gap: var(--espaco);
+  /* o respiro (padding) evita cortar a rotação e a sombra das fotos; a margem negativa devolve o alinhamento */
+  padding: 26px var(--respiro) 44px;
+  margin: -26px calc(-1 * var(--respiro)) -44px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--respiro);
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.js .polaroids::-webkit-scrollbar {
+  display: none;
+}
+
+.js .polaroids li {
+  flex: 0 0 calc((100% - (var(--fotos-por-vez) - 1) * var(--espaco)) / var(--fotos-por-vez));
+  scroll-snap-align: start;
+}
+
+.polaroids img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.js .galeria-botao {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin-top: -27px;
+  padding-bottom: 5px;
+  font: 800 2.4rem/1 var(--fonte-texto);
+  color: #fff;
+  cursor: pointer;
+  background: var(--vermelho);
+  border: 3px solid var(--azul-marinho);
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 var(--azul-marinho);
+  transition: 0.2s;
+}
+
+.galeria-anterior {
+  left: -27px;
+}
+
+.galeria-proxima {
+  right: -27px;
+}
+
+.js .galeria-botao:hover:not(:disabled) {
+  background: var(--azul);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--azul-marinho);
+}
+
+.js .galeria-botao:disabled {
+  cursor: default;
+  opacity: 0.3;
+}
