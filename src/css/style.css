@@ -627,3 +627,34 @@ h2::after {
   cursor: default;
   opacity: 0.3;
 }
+
+@media (max-width: 860px) {
+  .galeria {
+    --fotos-por-vez: 2;
+    --espaco: 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  /* Sem espaço nas laterais: as setas ficam por cima das bordas da foto */
+  .galeria-anterior {
+    left: 4px;
+  }
+
+  .galeria-proxima {
+    right: 4px;
+  }
+}
+
+@media (max-width: 560px) {
+  .galeria {
+    --fotos-por-vez: 1;
+  }
+
+  .js .galeria-botao {
+    width: 46px;
+    height: 46px;
+    margin-top: -23px;
+    font-size: 2rem;
+  }
+}
