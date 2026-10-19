@@ -1247,3 +1247,98 @@ textarea.erro {
     display: flex;
   }
 }
+
+/* ===== Capa (hero) mais elaborada ===== */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(rgba(255, 255, 255, 0.16) 1.5px, transparent 1.5px) 0 0/28px 28px;
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent 85%);
+  mask-image: linear-gradient(180deg, #000, transparent 85%);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.b1 {
+  width: 420px;
+  height: 420px;
+  right: -140px;
+  top: -140px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.b2 {
+  width: 230px;
+  height: 230px;
+  left: -80px;
+  bottom: 70px;
+  background: rgba(196, 22, 10, 0.4);
+  animation: flutuar 9s ease-in-out infinite;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.tag {
+  display: inline-block;
+  background: #fff;
+  color: var(--azul);
+  font-weight: 800;
+  padding: 5px 16px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6.2vw, 4.8rem);
+  line-height: 1.03;
+  margin: 4px 0 18px;
+}
+
+.selos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.selos li {
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  padding: 3px 14px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.hero-txt > * {
+  opacity: 0;
+  animation: subir 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.hero-txt > :nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.hero-txt > :nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.hero-txt > :nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.hero-txt > :nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.hero-txt > :nth-child(6) {
+  animation-delay: 0.5s;
+}
+
