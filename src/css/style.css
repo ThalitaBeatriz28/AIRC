@@ -1715,3 +1715,139 @@ textarea.erro {
     color: #fff;
   }
 }
+
+/* ==========================================================
+   9. CAPA (HERO) COM BANDEIRAS AO VENTO
+   ========================================================== */
+.hero {
+  position: relative;
+  padding: clamp(50px, 8vw, 100px) 0;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.22), transparent 45%),
+    linear-gradient(160deg, var(--azul), #1b1180);
+}
+
+.bandeiras {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(40px, 8vw, 90px);
+  margin: 0;
+  padding-top: 24px;
+}
+
+/* Linha de chão sob os mastros */
+.bandeiras::after {
+  content: "";
+  position: absolute;
+  right: 4%;
+  bottom: 0;
+  left: 4%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 3px;
+}
+
+/* Mastro: barra vertical com uma bolinha no topo */
+.bandeira-mastro {
+  position: relative;
+  height: clamp(300px, 40vw, 400px);
+  padding-left: 14px;
+}
+
+.bandeira-mastro::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  bottom: 0;
+  left: 0;
+  width: 8px;
+  background: linear-gradient(90deg, #fff, var(--cinza));
+  border-radius: 4px;
+}
+
+.bandeira-mastro::after {
+  content: "";
+  position: absolute;
+  top: -26px;
+  left: -2px;
+  width: 12px;
+  height: 12px;
+  background: var(--vermelho);
+  border-radius: 50%;
+}
+
+.bandeira {
+  position: relative;
+  width: var(--largura-bandeira);
+  aspect-ratio: var(--proporcao);
+  background: var(--imagem) center / cover;
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.35));
+}
+
+.bandeira--logo {
+  --largura-bandeira: clamp(190px, 27vw, 280px);
+  --proporcao: 238 / 200;
+  --imagem: url("../assets/img/logo.png");
+}
+
+.bandeira--eua {
+  --largura-bandeira: clamp(120px, 16vw, 170px);
+  --proporcao: 19 / 10;
+  --imagem: url("../assets/img/bandeira-eua.svg");
+}
+
+.bandeira.ondulando {
+  background: none;
+}
+
+.bandeira i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--indice) * 100% / var(--total-faixas));
+  width: calc(100% / var(--total-faixas) + 0.6px);
+  background: var(--imagem);
+  background-size: calc(var(--total-faixas) * 100%) 100%;
+  background-position: calc(var(--indice) * 100% / (var(--total-faixas) - 1)) 0;
+  animation: ondular 2.6s ease-in-out infinite;
+  animation-delay: calc(var(--indice) * -110ms);
+}
+
+/* Sombra em movimento: dá a impressão de dobras no tecido */
+.bandeira.ondulando::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.2),
+    rgba(255, 255, 255, 0.22) 25%,
+    rgba(0, 0, 0, 0.16) 50%,
+    rgba(255, 255, 255, 0.22) 75%,
+    rgba(0, 0, 0, 0.2)
+  );
+  background-size: 200% 100%;
+  animation: sombra-tecido 2.6s linear infinite;
+}
+
+@keyframes ondular {
+  0%,
+  100% {
+    transform: translateY(calc(var(--indice) * 0.28px));
+  }
+
+  50% {
+    transform: translateY(calc(var(--indice) * -0.28px));
+  }
+}
+
+@keyframes sombra-tecido {
+  to {
+    background-position: -200% 0;
+  }
+}
