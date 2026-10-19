@@ -2346,3 +2346,101 @@ textarea.erro {
   border-radius: 36px 34px 8px 32px;
   rotate: -0.8deg;
 }
+
+/* Rabinho do balão */
+.balao-fala::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  width: 30px;
+  height: 22px;
+  background: inherit;
+}
+
+.balao-fala--azul::after {
+  left: 26px;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.balao-fala--vermelho::after {
+  right: 26px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+/* Mini bandeira "colada" no canto do balão */
+.balao-fala::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  background: var(--bandeira-img) center / cover;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(22, 16, 63, 0.3);
+}
+
+.balao-fala::before {
+  right: -10px;
+}
+
+.balao-fala--eua::before {
+  --bandeira-img: url("../assets/img/bandeira-eua.svg");
+}
+
+.balao-fala--uk::before {
+  --bandeira-img: url("../assets/img/bandeira-uk.svg");
+}
+
+/* Ícone: círculo irregular, como um carimbo */
+.balao-fala-icone {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  font-size: 1.6rem;
+  background: rgba(255, 255, 255, 0.18);
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  border-radius: 58% 42% 55% 45% / 48% 55% 45% 52%;
+}
+
+.balao-fala-rotulo {
+  display: block;
+  font: 400 1.25rem/1.1 var(--fonte-script);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.balao-fala a,
+.balao-fala-valor {
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #fff;
+  overflow-wrap: anywhere;
+  text-wrap: balance; /* quebra o endereço em linhas parecidas, sem deixar "- SP" sozinho */
+}
+
+.balao-fala a {
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.55);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.balao-fala a:hover {
+  text-decoration-color: #fff;
+}
+
+/* O balão inteiro é clicável (não só o texto do link) */
+.balao-fala a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 38px;
+}
+
+.balao-fala a:focus-visible {
+  outline-color: var(--azul-marinho);
+}
