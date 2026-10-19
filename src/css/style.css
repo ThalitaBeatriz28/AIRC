@@ -2206,3 +2206,54 @@ textarea.erro {
   }
 }
 
+/* ==========================================================
+   14. FALE COM A ANA
+   ========================================================== */
+.secao-conversa {
+  overflow: hidden; /* as bolhas de fundo não geram rolagem lateral */
+}
+
+.conversa-intro .lead {
+  margin-bottom: 0;
+}
+
+/* Indicador de "digitando…" */
+.digitando {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  margin-top: 30px;
+  padding: 16px 22px;
+  background: #fff;
+  border: 3px solid var(--azul-marinho);
+  border-radius: 28px 28px 28px 6px;
+  box-shadow: 4px 4px 0 var(--azul);
+}
+
+.digitando i {
+  width: 10px;
+  height: 10px;
+  background: var(--vermelho);
+  border-radius: 50%;
+  animation: pular-ponto 1.3s ease-in-out infinite;
+}
+
+.digitando i:nth-child(2) {
+  background: var(--azul);
+  animation-delay: 0.15s;
+}
+
+.digitando i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes pular-ponto {
+  0%,
+  60%,
+  100% {
+    transform: none;
+  }
+  30% {
+    transform: translateY(-7px);
+  }
+}
