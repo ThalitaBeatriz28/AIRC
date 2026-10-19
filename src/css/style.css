@@ -921,3 +921,15 @@ textarea.erro {
   }
 }
 
+/* Link "Ver mais" no fim de cada resumo da home */
+.secao-ver-mais {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+}
+
+.lead + .cartoes-viram,
+.lead.revelar {
+  margin-bottom: 32px;
+}
