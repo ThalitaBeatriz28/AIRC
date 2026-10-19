@@ -1464,3 +1464,166 @@ textarea.erro {
     padding-bottom: 110px;
   }
 }
+
+/* ==========================================================
+   8. CABEÇALHO, NAVEGAÇÃO (COM SUBMENU) E MENU MOBILE
+   ========================================================== */
+
+
+[hidden] {
+  display: none !important;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 14px rgba(22, 16, 63, 0.12);
+}
+
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+}
+
+.bar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.brand {
+  position: relative;
+  z-index: 60;
+}
+
+#menu ul {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Links e botão do submenu compartilham o mesmo visual */
+#menu a:not(.btn),
+.sub-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font: inherit;
+  font-weight: 800;
+  color: var(--azul-marinho);
+  text-decoration: none;
+  background: linear-gradient(90deg, var(--azul), var(--vermelho)) no-repeat 0 100% / 0 3px;
+  border: 0;
+  cursor: pointer;
+  transition: background-size 0.3s;
+}
+
+#menu a:not(.btn):hover,
+#menu a[aria-current],
+.sub-toggle:hover,
+.sub-toggle[aria-current] {
+  background-size: 100% 3px;
+}
+
+.caret {
+  width: 8px;
+  height: 8px;
+  border-right: 3px solid var(--vermelho);
+  border-bottom: 3px solid var(--vermelho);
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.3s;
+}
+
+.has-sub.aberto .caret {
+  transform: rotate(-135deg) translate(-2px, -2px);
+}
+
+/* Submenu (desktop): lista suspensa sob o botão "Para quem" */
+.has-sub {
+  position: relative;
+  padding-block: 8px;
+}
+
+#menu .submenu {
+  position: absolute;
+  top: 100%;
+  left: -16px;
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+  min-width: 210px;
+  padding: 10px;
+  background: #fff;
+  border: 3px solid var(--azul-marinho);
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--vermelho);
+}
+
+#menu .has-sub.aberto .submenu {
+  display: flex;
+}
+
+#menu .submenu a {
+  display: block;
+  padding: 8px 14px;
+  background: none;
+  border-radius: 10px;
+}
+
+#menu .submenu a:hover {
+  background: var(--cinza-claro);
+}
+
+#menu .submenu a[aria-current] {
+  color: #fff;
+  background: var(--azul);
+}
+
+/* Botão hambúrguer (só aparece no celular) */
+.burger {
+  position: relative;
+  z-index: 60;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 46px;
+  height: 46px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.burger span {
+  width: 26px;
+  height: 3px;
+  background: var(--azul);
+  border-radius: 3px;
+  transition: 0.35s;
+}
+
+.burger[aria-expanded="true"] span {
+  background: #fff;
+}
+
+.burger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.burger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
