@@ -1080,3 +1080,71 @@ textarea.erro {
 .curso .etiquetas {
   margin: 0 22px 12px;
 }
+
+/* Método: capítulos */
+.etapas {
+  display: grid;
+  gap: 26px;
+}
+
+.etapa {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 30px;
+  border-radius: 32px;
+  background: var(--cinza-claro);
+}
+
+.etapa:nth-child(even) {
+  background: var(--azul);
+  color: #fff;
+}
+
+.numero-etapa {
+  font-size: 6rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--vermelho);
+  -webkit-text-stroke: 3px var(--azul-marinho);
+  text-align: center;
+}
+
+.etapa h2 {
+  font-size: 1.7rem;
+  margin-bottom: 8px;
+}
+
+.etapa h2::after {
+  display: none;
+}
+
+.habilidades {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.habilidade {
+  text-align: center;
+  padding: 26px 18px;
+  border: 3px dashed var(--azul-marinho);
+  border-radius: 50% 50% 50% 8px/40% 40% 40% 8px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.habilidade:nth-child(even) {
+  border-radius: 50% 50% 8px 50%/40% 40% 8px 40%;
+  border-color: var(--vermelho);
+}
+
+.habilidade span {
+  font-size: 2.6rem;
+}
+
+.habilidade:hover {
+  transform: rotate(-3deg) scale(1.05);
+}
