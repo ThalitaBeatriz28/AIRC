@@ -1,3 +1,13 @@
+/* ==========================================================
+   ESTILO — Ana Izaura Rodrigues
+   Paleta tirada da logo: azul, vermelho, branco e cinza.
+   Estrutura: 
+   1 variáveis         5 seções
+   2 base              6 animações
+   3 cabeçalho/menu    7 responsivo
+   4 componentes
+   ========================================================== */
+
 /* 1. VARIÁVEIS */
 :root {
   --azul: #2a1ba6;
